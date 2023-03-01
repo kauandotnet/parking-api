@@ -36,7 +36,9 @@ $ npm install
 
 ```bash
 # development
-$ npm run start
+$ docker-compose up -d
+$ cp .env.example .env
+$ npm run:migration:run
 
 # watch mode
 $ npm run start:dev
