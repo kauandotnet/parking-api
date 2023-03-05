@@ -1,6 +1,8 @@
-import { DataSource, Repository } from 'typeorm';
 import { Injectable } from '@nestjs/common';
+import { DataSource, Repository } from 'typeorm';
+
 import { ParkingEntity } from './parking.entity';
+import { ParkingSpotStatus } from '../parking-spot/parking-spot-status.enum';
 
 @Injectable()
 export class ParkingRepository extends Repository<ParkingEntity> {
@@ -16,7 +18,10 @@ export class ParkingRepository extends Repository<ParkingEntity> {
         'floors.availableSpots',
         'floors.spots',
         'spot',
-        (qb) => qb.where('spot.status =:status', { status: true }),
+        (qb) =>
+          qb.where('spot.status =:status', {
+            status: ParkingSpotStatus.AVAILABLE,
+          }),
       )
       .getOne();
   }

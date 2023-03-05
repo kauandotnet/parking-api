@@ -9,6 +9,7 @@ services:
       POSTGRES_DB: parking
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres
+      POSTGRES_INITDB_ARGS: "-c timezone=UTC"
     ports:
       - "5432:5432"
     restart: always

@@ -6,8 +6,11 @@ import {
   ParseUUIDPipe,
   Patch,
   Post,
+  Query,
 } from '@nestjs/common';
+
 import { CreateParkingDto } from './dtos/create-parking.dto';
+import { ParkingSpotStatusDto } from './dtos/parking-spot-status.dto';
 import { UpdateParkingDto } from './dtos/update-parking.dto';
 import { ParkingService } from './parking.service';
 
@@ -36,5 +39,13 @@ export class ParkingController {
     @Body() updateParking: UpdateParkingDto,
   ) {
     return this.parkingService.update(parkingId, updateParking);
+  }
+
+  @Get(':id/spots')
+  findSpots(
+    @Param('id', ParseUUIDPipe) parkingId: string,
+    @Query() { status }: ParkingSpotStatusDto,
+  ) {
+    return this.parkingService.findSpots(parkingId, status);
   }
 }
