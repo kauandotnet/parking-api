@@ -1,7 +1,8 @@
-import { BaseAbstractEntity } from '../../common/entities/base-abstract.entity';
-import { ParkingSpotEntity } from '../../modules/parking-spot/parking-spot.entity';
-import { ParkingEntity } from '../../modules/parking/parking.entity';
 import { Column, Entity, ManyToOne, OneToMany } from 'typeorm';
+
+import { BaseAbstractEntity } from '@/common/entities/base-abstract.entity';
+import { ParkingEntity } from '@/modules/parking/parking.entity';
+import { ParkingSpotEntity } from '@/modules/parking-spot/parking-spot.entity';
 
 @Entity('parking_floors')
 export class ParkingFloorEntity extends BaseAbstractEntity {

@@ -1,6 +1,9 @@
-import { BaseAbstractEntity } from '../../common/entities/base-abstract.entity';
-import { ParkingFloorEntity } from '../../modules/parking-floor/parking-floor.entity';
-import { Column, Entity, OneToMany } from 'typeorm';
+import { Entity, Column, OneToMany } from 'typeorm';
+
+import { BaseAbstractEntity } from '@/common/entities/base-abstract.entity';
+
+import { VehicleRates } from './interfaces/vehicle-rates.type';
+import { ParkingFloorEntity } from '../parking-floor/parking-floor.entity';
 
 @Entity('parkings')
 export class ParkingEntity extends BaseAbstractEntity {
@@ -26,4 +29,10 @@ export class ParkingEntity extends BaseAbstractEntity {
 
   @Column({ type: 'text' })
   phone: string;
+
+  @Column({ type: 'numeric', default: 0 })
+  defaultRate: number;
+
+  @Column({ type: 'jsonb', nullable: true })
+  rates: VehicleRates;
 }

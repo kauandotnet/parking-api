@@ -1,7 +1,9 @@
-import { BaseAbstractEntityDto } from '@common/dto/base-abastract-entity.dto';
-import { VehicleInterface } from '@modules/vehicle/vehicle.interface';
 import { Expose } from 'class-transformer';
 import { IsString, MaxLength, MinLength } from 'class-validator';
+
+import { BaseAbstractEntityDto } from '@/common/dto/base-abastract-entity.dto';
+import { VehicleInterface } from '@/modules/vehicle/vehicle.interface';
+
 import { CustomerInterface } from '../customer.interface';
 
 export class CustomerDto

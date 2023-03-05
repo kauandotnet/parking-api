@@ -1,7 +1,9 @@
-import { ParkingFloorEntity } from '@modules/parking-floor/parking-floor.entity';
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
+
+import { ParkingFloorEntity } from '@/modules/parking-floor/parking-floor.entity';
+
 import { ParkingSpotEntity } from './parking-spot.entity';
 
 @Injectable()

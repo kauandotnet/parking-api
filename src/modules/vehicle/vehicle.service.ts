@@ -2,6 +2,7 @@ import { BadRequestException, Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { plainToInstance } from 'class-transformer';
 import { Repository } from 'typeorm';
+
 import { CreateVehicleDto } from './dtos/create-vehicle.dto';
 import { VehicleDto } from './dtos/vehicle.dto';
 import { VehicleEntity } from './vehicle.entity';
@@ -25,5 +26,13 @@ export class VehicleService {
     } catch (_error) {
       throw new BadRequestException('Impossible to create vehicle');
     }
+  }
+
+  async listTransactions(vehicleId: string): Promise<VehicleDto[]> {
+    const vehicles = await this.vehicleRepository.find({
+      where: { id: vehicleId },
+    });
+
+    return plainToInstance(VehicleDto, vehicles);
   }
 }

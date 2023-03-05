@@ -1,8 +1,6 @@
-import { DataSource } from 'typeorm';
 import * as dotenv from 'dotenv';
+import { DataSource } from 'typeorm';
 dotenv.config();
-
-console.log(process.env.DATABASE_HOST);
 
 export default new DataSource({
   type: 'postgres',

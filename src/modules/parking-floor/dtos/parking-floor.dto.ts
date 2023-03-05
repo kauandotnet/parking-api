@@ -1,6 +1,3 @@
-import { BaseAbstractEntityDto } from '@common/dto/base-abastract-entity.dto';
-import { ParkingSpotEntity } from '@modules/parking-spot/parking-spot.entity';
-import { ParkingEntity } from '@modules/parking/parking.entity';
 import { Expose } from 'class-transformer';
 import {
   IsBoolean,
@@ -10,6 +7,11 @@ import {
   Max,
   Min,
 } from 'class-validator';
+
+import { BaseAbstractEntityDto } from '@/common/dto/base-abastract-entity.dto';
+import { ParkingDto } from '@/modules/parking/dtos/parking.dto';
+import { ParkingSpotEntity } from '@/modules/parking-spot/parking-spot.entity';
+
 import { ParkingFloorEntity } from '../parking-floor.entity';
 
 export class ParkingFloorDto
@@ -35,5 +37,5 @@ export class ParkingFloorDto
   spots: ParkingSpotEntity[];
 
   @Expose()
-  parking: ParkingEntity;
+  parking: ParkingDto;
 }

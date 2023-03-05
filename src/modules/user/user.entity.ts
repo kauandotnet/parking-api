@@ -1,7 +1,8 @@
-import { BaseAbstractEntity } from '../../common/entities/base-abstract.entity';
-import { PasswordTransformer } from '../../common/transformer/password.transformer';
 import { Exclude } from 'class-transformer';
 import { Column, Entity } from 'typeorm';
+
+import { BaseAbstractEntity } from '@/common/entities/base-abstract.entity';
+import { PasswordTransformer } from '@/common/transformer/password.transformer';
 
 @Entity('users')
 export class UserEntity extends BaseAbstractEntity {
