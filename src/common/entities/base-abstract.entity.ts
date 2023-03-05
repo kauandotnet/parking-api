@@ -1,4 +1,3 @@
-import { BaseAbstractEntityInterface } from '@common/interfaces/base-abstract-entity.interface';
 import { Exclude } from 'class-transformer';
 import {
   PrimaryGeneratedColumn,
@@ -6,6 +5,8 @@ import {
   UpdateDateColumn,
   DeleteDateColumn,
 } from 'typeorm';
+
+import { BaseAbstractEntityInterface } from '@/common/interfaces/base-abstract-entity.interface';
 
 export abstract class BaseAbstractEntity
   implements BaseAbstractEntityInterface

@@ -1,5 +1,5 @@
-import { ParkingSpotInterface } from '@modules/parking-spot/parking-spot.interface';
-import { ParkingInterface } from '@modules/parking/parking.interface';
+import { ParkingInterface } from '@/modules/parking/interfaces/parking.interface';
+import { ParkingSpotInterface } from '@/modules/parking-spot/parking-spot.interface';
 
 export interface ParkingFloorInterface {
   label: string;

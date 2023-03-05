@@ -1,6 +1,8 @@
-import { BaseAbstractEntity } from '../../common/entities/base-abstract.entity';
-import { VehicleEntity } from '../../modules/vehicle/vehicle.entity';
-import { Column, Entity, OneToMany } from 'typeorm';
+import { Entity, Column, OneToMany } from 'typeorm';
+
+import { BaseAbstractEntity } from '@/common/entities/base-abstract.entity';
+
+import { VehicleEntity } from '../vehicle/vehicle.entity';
 
 @Entity('customers')
 export class CustomerEntity extends BaseAbstractEntity {

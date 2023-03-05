@@ -1,7 +1,9 @@
-import { BaseAbstractEntity } from '../../common/entities/base-abstract.entity';
-import { CustomerEntity } from '../../modules/customer/customer.entity';
-import { ParkingTransactionEntity } from '../../modules/parking-transactions/parking-transaction.entity';
 import { Column, Entity, ManyToOne, OneToMany } from 'typeorm';
+
+import { BaseAbstractEntity } from '@/common/entities/base-abstract.entity';
+import { CustomerEntity } from '@/modules/customer/customer.entity';
+import { ParkingTransactionEntity } from '@/modules/parking-transactions/parking-transaction.entity';
+
 import { VehicleType } from './vehicle-type.enum';
 import { VehicleInterface } from './vehicle.interface';
 

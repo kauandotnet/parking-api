@@ -1,14 +1,18 @@
-import cluster from 'node:cluster';
-import { cpus } from 'node:os';
-import { DtoTransformInterceptor } from '@common/interceptors/dto-transform.interceptor';
 import { ValidationPipe } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
 import { NestFactory } from '@nestjs/core';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
+import cluster from 'node:cluster';
+import { cpus } from 'node:os';
+
+import { DtoTransformInterceptor } from '@/common/interceptors/dto-transform.interceptor';
+
 import { AppModule } from './app.module';
 
 const numCPUs = cpus().length;
-const onWorkerError = (code, signal) => console.error(code, signal);
+
+const onWorkerError = (code: string, signal: string) =>
+  console.error(code, signal);
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);

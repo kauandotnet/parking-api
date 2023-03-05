@@ -1,9 +1,12 @@
-import { ParkingFloorInterface } from '@modules/parking-floor/parking-floor.interface';
-import { ParkingTransactionInterface } from '@modules/parking-transactions/parking-transaction.interface';
+import { BaseAbstractEntityInterface } from '@/common/interfaces/base-abstract-entity.interface';
+import { ParkingFloorInterface } from '@/modules/parking-floor/parking-floor.interface';
+import { IParkingTransaction } from '@/modules/parking-transactions/parking-transaction.interface';
 
-export interface ParkingSpotInterface {
+import { ParkingSpotStatus } from './parking-spot-status.enum';
+
+export interface ParkingSpotInterface extends BaseAbstractEntityInterface {
   name: string;
   floor: ParkingFloorInterface;
-  status: boolean;
-  transactions: ParkingTransactionInterface[];
+  status: ParkingSpotStatus;
+  transactions: IParkingTransaction[];
 }
