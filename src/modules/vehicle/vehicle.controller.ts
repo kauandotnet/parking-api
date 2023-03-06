@@ -8,6 +8,7 @@ import {
 } from '@nestjs/common';
 
 import { CreateVehicleDto } from './dtos/create-vehicle.dto';
+import { VehicleTransactionDto } from './dtos/vehicle-transaction.dto';
 import { VehicleService } from './vehicle.service';
 
 @Controller('vehicles')
@@ -25,7 +26,9 @@ export class VehicleController {
   }
 
   @Get(':id/transactions')
-  listTransactions(@Param('id', ParseUUIDPipe) vehicleId: string) {
+  listTransactions(
+    @Param('id', ParseUUIDPipe) vehicleId: string,
+  ): Promise<VehicleTransactionDto[]> {
     return this.vehicleService.listTransactions(vehicleId);
   }
 }
