@@ -24,6 +24,7 @@
       "@/utils/*": ["common/utils/*"],
       "@/config/*": ["config/*"],
       "@/modules/*": ["modules/*"],
+      "@/core/*": ["core/*"],
     }
   }
 }
