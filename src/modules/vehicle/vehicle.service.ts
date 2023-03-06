@@ -4,6 +4,7 @@ import { plainToInstance } from 'class-transformer';
 import { Repository } from 'typeorm';
 
 import { CreateVehicleDto } from './dtos/create-vehicle.dto';
+import { VehicleTransactionDto } from './dtos/vehicle-transaction.dto';
 import { VehicleDto } from './dtos/vehicle.dto';
 import { VehicleEntity } from './vehicle.entity';
 
@@ -28,11 +29,17 @@ export class VehicleService {
     }
   }
 
-  async listTransactions(vehicleId: string): Promise<VehicleDto[]> {
-    const vehicles = await this.vehicleRepository.find({
+  async listTransactions(vehicleId: string): Promise<VehicleTransactionDto[]> {
+    const vehicle = await this.vehicleRepository.findOne({
       where: { id: vehicleId },
+      select: ['id'],
+      relations: ['parkingTransactions'],
     });
 
-    return plainToInstance(VehicleDto, vehicles);
+    if (!vehicle) throw new BadRequestException();
+
+    const { parkingTransactions } = vehicle;
+
+    return plainToInstance(VehicleTransactionDto, parkingTransactions);
   }
 }
